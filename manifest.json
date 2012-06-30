@@ -1,0 +1,21 @@
+//Chrome Extension Boilerplate. Exhibited functionality: stop gmail fwd filter nag
+//Install:
+//Chrome -> Window -> Extensions -> (Check) Developer Mode -> Load Unpacked Extension
+{
+  "name": "No Gmail Forwarding Alert",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "Disable forwarding warning in Gmail.",
+  "browser_action": { "default_icon": "icon.png" },
+  "permissions": [
+    "https://*.google.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      //"css": ["fwd.css"],
+      "run_at": "document_end",
+      "js": ["fwd.js"]
+    }
+  ]
+}
